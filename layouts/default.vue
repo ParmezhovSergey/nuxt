@@ -1,8 +1,8 @@
 <template>
   <header>
     <!-- <button @click="router.push(`/about`)"> About</button> -->
-    <NuxtLink to="/about">About</NuxtLink>
-    <NuxtLink to="/contact">Contacts</NuxtLink>
+    <NuxtLink to="/nuxt/about">About</NuxtLink>
+    <NuxtLink to="/nuxt/contact">Contacts</NuxtLink>
   </header>
   <main>
     <slot></slot>
