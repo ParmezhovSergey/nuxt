@@ -1,6 +1,6 @@
 <template>
   <header>
-    <NuxtLink to="/about">About</NuxtLink>
+    <NuxtLink to="/nuxt/about">About</NuxtLink>
     <NuxtLink to="/contact">Contacts</NuxtLink>
   </header>
   <main>
