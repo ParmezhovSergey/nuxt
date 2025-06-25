@@ -5,9 +5,12 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+    layout: 'default'
+})
 useSeoMeta({
-    title: "Главная ",
-    description: "Главная"
+    title: "Вход",
+    description: "Вход"
 })
 </script>
 
