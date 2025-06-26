@@ -3,17 +3,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
-  modules: [
-    '@pinia/nuxt', 'nuxt-vite', 'pinia'
-  ],
+  modules: ["@pinia/nuxt", "nuxt-vite", "pinia", "@vueuse/nuxt"],
+
+  css: ["~/assets/reset.css"],
   
-  css: [
-    '~/assets/reset.css'
-  ],
-  vite: {
-    build: {
-      ssr: false
-    }
-  }
-  // modules: ['@vueuse/nuxt']
+  
 });
