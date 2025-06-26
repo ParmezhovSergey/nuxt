@@ -8,10 +8,10 @@ export interface IUser {
   city: string;
 }
 
-interface IAuth {
-  login: string;
-  pass: string;
-}
+// interface IAuth {
+//   login: string;
+//   pass: string;
+// }
 
 interface initialState {
   users: Array<IUser>;

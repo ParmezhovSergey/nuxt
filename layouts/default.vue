@@ -1,7 +1,5 @@
 <template>
   <header class="header">
-    <NuxtLink to="/about">About</NuxtLink>
-    <NuxtLink to="/usersPage">Contacts</NuxtLink>
   </header>
   <main class="main">
     <slot />
@@ -9,7 +7,7 @@
   <footer class="footer">pagination</footer>
 </template>
 <script setup lang="ts">
-const router = useRouter();
+
 </script>
 
 <style scoped>
