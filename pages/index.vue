@@ -3,7 +3,7 @@
      <div v-for="user in usersStore.users" :key="user.id">{{ user.name }}</div>
 </template>
 
-<script setup lang="ts">
+<script setup >
 import { useUsersStore } from "../stores/usersStore";
 definePageMeta({
     layout: 'default'

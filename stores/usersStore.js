@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 import { getUsers } from "./api";
 
-export interface IUser {
-  id: number;
-  name: string;
-  age: number | null;
-  city: string;
-}
+// export interface IUser {
+//   id: number;
+//   name: string;
+//   age: number | null;
+//   city: string;
+// }
 
 // interface IAuth {
 //   login: string;
@@ -15,16 +15,15 @@ export interface IUser {
 
 // interface initialState {
 //   users: Array<IUser>;
-  // userCity: Array<IUser>;
-  // auth: IAuth;
-  // city: string;
-  // searchQuery: string;
+// userCity: Array<IUser>;
+// auth: IAuth;
+// city: string;
+// searchQuery: string;
 // }
 
 export const useUsersStore = defineStore("usersStore", {
-  state:()=> ({
-    users: [] as IUser[]
-   
+  state: () => ({
+    users: [],
   }),
 
   getters: {},
@@ -33,7 +32,7 @@ export const useUsersStore = defineStore("usersStore", {
     async fetchUsers() {
       const settings = await getUsers();
       this.users = settings.users;
-      console.log('users', settings.users)
+      console.log("users", settings.users);
     },
   },
 });
