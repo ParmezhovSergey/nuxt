@@ -8,6 +8,11 @@ export default defineNuxtConfig({
   ],
   css: [
     '~/assets/reset.css'
-  ]
+  ],
+  vite: {
+    build: {
+      ssr: false
+    }
+  }
   // modules: ['@vueuse/nuxt']
 });
