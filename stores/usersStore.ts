@@ -13,17 +13,17 @@ export interface IUser {
 //   pass: string;
 // }
 
-interface initialState {
-  users: Array<IUser>;
+// interface initialState {
+//   users: Array<IUser>;
   // userCity: Array<IUser>;
   // auth: IAuth;
   // city: string;
   // searchQuery: string;
-}
+// }
 
 export const useUsersStore = defineStore("usersStore", {
-  state: (): initialState => ({
-    users: [],
+  state:()=> ({
+    users: [] as IUser[]
    
   }),
 

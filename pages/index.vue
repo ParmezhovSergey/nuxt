@@ -5,15 +5,15 @@
 
 <script setup lang="ts">
 import { useUsersStore } from "../stores/usersStore";
-// definePageMeta({
-//     layout: 'default'
-// })
+definePageMeta({
+    layout: 'default'
+})
 useSeoMeta({
     title: "Список работников",
     description: "Список работников"
 })
 
 const usersStore = useUsersStore();
-// usersStore.fetchUsers()
+usersStore.fetchUsers()
 </script>
 
