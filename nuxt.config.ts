@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
   modules: [
-    '@pinia/nuxt', 'nuxt-vite'
+    '@pinia/nuxt', 'nuxt-vite', 'pinia'
   ],
   
   css: [
