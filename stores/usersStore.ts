@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
 import { getUsers } from "./api";
 
-// export interface IUser {
-//   id: number;
-//   name: string;
-//   age: number | null;
-//   city: string;
-// }
+export interface IUser {
+  id: number;
+  name: string;
+  age: number | null;
+  city: string;
+  phone: number
+}
 
 // interface IAuth {
 //   login: string;
@@ -23,7 +24,7 @@ import { getUsers } from "./api";
 
 export const useUsersStore = defineStore("usersStore", {
   state: () => ({
-    users: [],
+    users: [] as IUser[]
   }),
 
   getters: {},

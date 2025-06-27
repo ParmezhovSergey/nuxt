@@ -1,19 +1,33 @@
 <template>
-     <div>contacts</div>
-     <div v-for="user in usersStore.users" :key="user.id">{{ user.name }}</div>
+  <div class="page">
+    <UserFilter/>
+
+    <div class="title">Список сотрудников</div>
+
+    <UsersList />
+  </div>
 </template>
 
-<script setup >
+<script setup lang="ts">
 import { useUsersStore } from "../stores/usersStore";
 definePageMeta({
-    layout: 'default'
-})
+  layout: "default",
+});
 useSeoMeta({
-    title: "Список работников",
-    description: "Список работников"
-})
-
-const usersStore = useUsersStore();
-usersStore.fetchUsers()
+  title: "Список работников",
+  description: "Список работников",
+});
 </script>
 
+<style scoped>
+.page {
+  background-color: rgb(248, 235, 216);
+  
+}
+.title {
+  width: 180px;
+  font-size: 20px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+</style>
