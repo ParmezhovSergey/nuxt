@@ -8,12 +8,12 @@ export interface IUser {
   city: string;
   phone: number | null;
 }
-interface IUserId {
-  id: number | null;
-  name: string;
-  age: number | null;
-  city: string;
-  phone: number | null;
+export interface IUserId {
+  id?: number | null | undefined;
+  name?: string | undefined;
+  age?: number | null | undefined;
+  city?: string | undefined;
+  phone?: number | null | undefined;
 }
 
 interface initialState {

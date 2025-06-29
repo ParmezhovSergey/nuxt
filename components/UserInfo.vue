@@ -16,7 +16,7 @@
         <input
           type="text"
           placeholder="Город"
-         v-model="newUser.city"
+          v-model="newUser.city"
           style="margin-left: 19px; border-radius: 5px"
         />
       </div>
@@ -47,30 +47,10 @@
 </template>
 
 <script setup lang="ts">
-interface MyObject {
-  id: number | null | undefined;
-  name: string | undefined;
-  city: string | undefined;
-  age: number | null | undefined;
-  phone: number | null | undefined;
-}
-
 const usersStore = useUsersStore();
-
-
-const newUser = ref<MyObject>({
-  id: null,
-  name: "",
-  city: "",
-  age: null,
-  phone: null,
-});
-// console.log("id", props.user);
-newUser.value.id = usersStore.newUser?.id;
-newUser.value.name = usersStore.newUser?.name;
-newUser.value.city = usersStore.newUser?.city;
-newUser.value.age = usersStore.newUser?.age;
-newUser.value.phone = usersStore.newUser?.phone;
+const target = {};
+const newObject = { ...target, ...usersStore.newUser };
+const newUser = ref<IUserId>(newObject);
 </script>
 
 <style scoped>
