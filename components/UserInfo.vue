@@ -40,7 +40,9 @@
       </div>
       <div class="btn">
         <button class="btnBack" @click="$emit('back')">Назад</button>
-        <button class="btnSave" @click="$emit('back'), changeUser(newUser)">Редактировать</button>
+        <button class="btnSave" @click="$emit('back'), changeUser(newUser)">
+          Сохранить
+        </button>
       </div>
     </div>
   </div>
@@ -53,12 +55,11 @@ const newObject = { ...target, ...usersStore.newUser };
 const newUser = ref<IUser>(newObject);
 
 const changeUser = (newUser: IUser) => {
-  if(usersStore.isOpen === true){
+  if (usersStore.isOpen === true) {
     usersStore.changeUsers(newUser);
   } else {
-    usersStore.addUser(newUser)
+    usersStore.addUser(newUser);
   }
-  
 };
 </script>
 

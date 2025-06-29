@@ -4,8 +4,8 @@
       <button class="addBtn" @click="setOpen">Добавить сотрудника</button>
     </div>
     <div class="search">
-      <input type="text" placeholder="поиск..." />
-      <button class="btn">Поиск</button>
+      <input type="text" placeholder="поиск..." v-model="val" />
+      <button class="btn" @click="updateSearch">Поиск</button>
     </div>
   </div>
   <div v-if="isOpen === true">
@@ -16,17 +16,21 @@
 <script setup lang="ts">
 const usersStore = useUsersStore();
 const isOpen = useState("myBoolean", () => false);
+const val = ref("");
 
 const setOpen = () => {
   isOpen.value = true;
-  usersStore.newUser = {} 
-  usersStore.isOpen = false
+  usersStore.newUser = {};
+  usersStore.isOpen = false;
 };
 
 const setClose = () => {
   isOpen.value = false;
 };
 
+const updateSearch = () => {
+  usersStore.setSearchQuery(val.value);
+};
 </script>
 
 <style scoped>

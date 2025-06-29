@@ -8,13 +8,6 @@ export interface IUser {
   city: string;
   phone: number | null;
 }
-// export interface IUserId {
-//   id?: number | null | undefined;
-//   name?: string | undefined;
-//   age?: number | null | undefined;
-//   city?: string | undefined;
-//   phone?: number | null | undefined;
-// }
 
 interface initialState {
   users: Array<IUser>;
@@ -37,7 +30,17 @@ export const useUsersStore = defineStore("usersStore", {
     searchQuery: "",
   }),
 
-  getters: {},
+  getters: {
+    searchUser(state: initialState) {
+      if (state.searchQuery !== "") {
+        return state.users.filter((item: { name: string }) =>
+          item.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+      } else {
+        return state.users;
+      }
+    },
+  },
 
   actions: {
     async fetchUsers() {
@@ -48,8 +51,7 @@ export const useUsersStore = defineStore("usersStore", {
     openUser(id: number) {
       const userId = this.users.find((item) => item.id === id);
       this.newUser = userId;
-      this.isOpen = true
-      
+      this.isOpen = true;
     },
 
     changeUsers(newUser: IUser) {
@@ -62,9 +64,13 @@ export const useUsersStore = defineStore("usersStore", {
       this.users = newUsers;
     },
 
-    addUser(newUser: IUser){
-      this.users.push(newUser)
-      console.log('users', this.users)
-    }
+    addUser(newUser: IUser) {
+      this.users.push(newUser);
+      console.log("users", this.users);
+    },
+
+    setSearchQuery(name: string) {
+      this.searchQuery = name;
+    },
   },
 });
