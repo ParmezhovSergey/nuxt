@@ -65,6 +65,7 @@ export const useUsersStore = defineStore("usersStore", {
     },
 
     addUser(newUser: IUser) {
+      newUser.id = Date.now();
       this.users.push(newUser);
       console.log("users", this.users);
     },
