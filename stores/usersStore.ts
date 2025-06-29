@@ -8,17 +8,18 @@ export interface IUser {
   city: string;
   phone: number | null;
 }
-export interface IUserId {
-  id?: number | null | undefined;
-  name?: string | undefined;
-  age?: number | null | undefined;
-  city?: string | undefined;
-  phone?: number | null | undefined;
-}
+// export interface IUserId {
+//   id?: number | null | undefined;
+//   name?: string | undefined;
+//   age?: number | null | undefined;
+//   city?: string | undefined;
+//   phone?: number | null | undefined;
+// }
 
 interface initialState {
   users: Array<IUser>;
-  newUser: IUserId | undefined;
+  newUser: any;
+  isOpen: boolean;
   searchQuery: string;
 }
 
@@ -32,6 +33,7 @@ export const useUsersStore = defineStore("usersStore", {
       city: "",
       phone: null,
     },
+    isOpen: false,
     searchQuery: "",
   }),
 
@@ -43,9 +45,26 @@ export const useUsersStore = defineStore("usersStore", {
       this.users = settings.users;
     },
 
-    addUser(id: number) {
+    openUser(id: number) {
       const userId = this.users.find((item) => item.id === id);
       this.newUser = userId;
+      this.isOpen = true
+      
     },
+
+    changeUsers(newUser: IUser) {
+      const newUsers = this.users.map((obj) => {
+        if (obj.id === newUser.id) {
+          return newUser;
+        }
+        return obj;
+      });
+      this.users = newUsers;
+    },
+
+    addUser(newUser: IUser){
+      this.users.push(newUser)
+      console.log('users', this.users)
+    }
   },
 });

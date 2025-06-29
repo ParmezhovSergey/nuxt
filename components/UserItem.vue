@@ -31,7 +31,7 @@ const isOpen = useState("myBoolean", () => false);
 
 const setOpen = () => {
   isOpen.value = true;
-  usersStore.addUser(props.user.id)
+  usersStore.openUser(props.user.id)
   console.log("user", props.user.id);
 };
 const setClose = () => {

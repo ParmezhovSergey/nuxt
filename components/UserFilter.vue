@@ -1,16 +1,33 @@
 <template>
   <div class="page">
     <div class="add">
-      <button class="addBtn">Добавить сотрудника</button>
+      <button class="addBtn" @click="setOpen">Добавить сотрудника</button>
     </div>
     <div class="search">
       <input type="text" placeholder="поиск..." />
       <button class="btn">Поиск</button>
     </div>
   </div>
+  <div v-if="isOpen === true">
+    <UserInfo @back="setClose" />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const usersStore = useUsersStore();
+const isOpen = useState("myBoolean", () => false);
+
+const setOpen = () => {
+  isOpen.value = true;
+  usersStore.newUser = {} 
+  usersStore.isOpen = false
+};
+
+const setClose = () => {
+  isOpen.value = false;
+};
+
+</script>
 
 <style scoped>
 .page {
