@@ -5,15 +5,17 @@
         <div class="text">Имя</div>
         <div class="text">Телефон</div>
       </div>
-
       <div class="title">
         <div class="user">{{ props.user.name }}</div>
         <div class="user">{{ props.user.phone }}</div>
         <div class="btn">
-          <button class="userBtn">Открыть</button>
+          <button @click="setOpen" class="userBtn">Открыть</button>
         </div>
       </div>
     </div>
+  </div>
+  <div v-if="isOpen === true">
+    <UserInfo @back="setClose" />
   </div>
 </template>
 <script setup lang="ts">
@@ -22,12 +24,24 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const usersStore = useUsersStore();
+
+
+const isOpen = useState("myBoolean", () => false);
+
+const setOpen = () => {
+  isOpen.value = true;
+  usersStore.addUser(props.user.id)
+  console.log("user", props.user.id);
+};
+const setClose = () => {
+  isOpen.value = false;
+};
 </script>
 <style scoped>
 .list {
   padding-top: 6px;
   padding-bottom: 6px;
-  
 }
 .users {
   width: 300px;

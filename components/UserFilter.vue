@@ -7,7 +7,6 @@
       <input type="text" placeholder="поиск..." />
       <button class="btn">Поиск</button>
     </div>
-    
   </div>
 </template>
 
@@ -15,7 +14,7 @@
 
 <style scoped>
 .page {
-    height: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,21 +28,19 @@
   background-color: white;
   border-radius: 5px;
 }
-.btn:hover{
-    background-color: green;
-    color: white;
+.btn:hover {
+  background-color: green;
+  color: white;
 }
-.add{
-    margin-left: 10px;
-    
+.add {
+  margin-left: 10px;
 }
-.addBtn{
-    background-color: white;
-    border-radius: 5px;
+.addBtn {
+  background-color: white;
+  border-radius: 5px;
 }
-.addBtn:hover{
-    background-color: green;
-    color: white;
+.addBtn:hover {
+  background-color: green;
+  color: white;
 }
-
 </style>

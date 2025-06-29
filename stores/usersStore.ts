@@ -6,25 +6,33 @@ export interface IUser {
   name: string;
   age: number | null;
   city: string;
-  phone: number
+  phone: number | null;
+}
+interface IUserId {
+  id: number | null;
+  name: string;
+  age: number | null;
+  city: string;
+  phone: number | null;
 }
 
-// interface IAuth {
-//   login: string;
-//   pass: string;
-// }
-
-// interface initialState {
-//   users: Array<IUser>;
-// userCity: Array<IUser>;
-// auth: IAuth;
-// city: string;
-// searchQuery: string;
-// }
+interface initialState {
+  users: Array<IUser>;
+  newUser: IUserId | undefined;
+  searchQuery: string;
+}
 
 export const useUsersStore = defineStore("usersStore", {
-  state: () => ({
-    users: [] as IUser[]
+  state: (): initialState => ({
+    users: [],
+    newUser: {
+      id: null,
+      name: "",
+      age: null,
+      city: "",
+      phone: null,
+    },
+    searchQuery: "",
   }),
 
   getters: {},
@@ -33,7 +41,11 @@ export const useUsersStore = defineStore("usersStore", {
     async fetchUsers() {
       const settings = await getUsers();
       this.users = settings.users;
-      console.log("users", settings.users);
+    },
+
+    addUser(id: number) {
+      const userId = this.users.find((item) => item.id === id);
+      this.newUser = userId;
     },
   },
 });

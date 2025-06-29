@@ -1,15 +1,12 @@
 <template>
   <div class="page">
-    <UserFilter/>
-
+    <UserFilter />
     <div class="title">Список сотрудников</div>
-
     <UsersList />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useUsersStore } from "../stores/usersStore";
 definePageMeta({
   layout: "default",
 });
@@ -22,7 +19,6 @@ useSeoMeta({
 <style scoped>
 .page {
   background-color: rgb(248, 235, 216);
-  
 }
 .title {
   width: 180px;

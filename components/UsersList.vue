@@ -7,12 +7,13 @@
 <script setup lang="ts">
 const usersStore = useUsersStore();
 usersStore.fetchUsers();
+
+
 </script>
 
 <style scoped>
 .users {
   height: calc(100vh - 160px);
   overflow: auto;
-  
 }
 </style>
